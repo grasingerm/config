@@ -62,6 +62,7 @@ sudo apt-get install  \
   gdb64               \
   valgrind            \
   valkyrie            \
+  kcachegrind         \
   cppcheck            \
   qt5-default         \
   qt5-qmake           \
