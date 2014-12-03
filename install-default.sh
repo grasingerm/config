@@ -107,3 +107,5 @@ sudo apt-get install  \
   libarpack2-dev      \
   libarmadillo-dev    \
   libboost1.55-all-dev
+  
+sudo apt-get remove firefox thunderbird
