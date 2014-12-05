@@ -63,6 +63,7 @@ sudo apt-get install  \
   valgrind            \
   valkyrie            \
   kcachegrind         \
+  tau                 \
   google-perftools    \
   libgoogle-perftools-dev \
   libgoogle-perftools4    \

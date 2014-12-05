@@ -34,6 +34,7 @@ add_executable(some_executable some_source_files.cpp)
 
 # link libraries
 # target_link_libraries(some_executable some_library)
+target_link_libraries(some_executable -lprofiler)
 
 # uncomment if using the standard c math library
 # if (UNIX)
