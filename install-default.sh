@@ -63,6 +63,11 @@ sudo apt-get install  \
   valgrind            \
   valkyrie            \
   kcachegrind         \
+  google-perftools    \
+  libgoogle-perftools-dev \
+  libgoogle-perftools4    \
+  graphviz            \
+  gv                  \
   cppcheck            \
   qt5-default         \
   qt5-qmake           \
