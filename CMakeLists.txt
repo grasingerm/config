@@ -1,23 +1,20 @@
-# boilerplate CMakeLists.txt
-
 cmake_minimum_required(VERSION 2.8)
 
-project(project_name)
+project(adfda)
 
-# uncomment to use clang
-# set(CC clang)
-# set(CXX clang)
-
-# set C++ standard
-#set(STDCXX c++14)
+# set C standards
+set(STDC c11)
 set(STDCXX c++1y)
-#set(STDCXX c++11)
-#set(STDCXX c++0x)
 
-# set flags for warnings, errors, and standards
-set(CMAKE_BUILD_TYPE debug)
-set(CMAKE_C_FLAGS_DEBUG "-Wall -Wextra -g -std=c99 -pedantic -pedantic-errors")
-set(CMAKE_C_FLAGS_RELEASE "-Wall -Wextra -std=c99 -pedantic -pedantic-errors -O3")
+if( NOT CMAKE_BUILD_TYPE )
+  set( CMAKE_BUILD_TYPE release CACHE STRING
+       "Choose the type of build, options are: None Debug Release RelWithDebInfo
+        MinSizeRel."
+       FORCE )
+endif()
+
+set(CMAKE_C_FLAGS_DEBUG "-Wall -Wextra -g -std=${STDC} -pedantic -pedantic-errors")
+set(CMAKE_C_FLAGS_RELEASE "-Wall -Wextra -std=${STDC} -pedantic -pedantic-errors -O3")
 set(CMAKE_CXX_FLAGS_DEBUG "-Wall -Wextra -g -std=${STDCXX} -pedantic -pedantic-errors")
 set(CMAKE_CXX_FLAGS_RELEASE "-Wall -Wextra -std=${STDCXX} -pedantic -pedantic-errors -O3")
 
@@ -37,6 +34,7 @@ add_executable(some_executable some_source_files.cpp)
 
 # link libraries
 # target_link_libraries(some_executable some_library)
+target_link_libraries(some_executable -lprofiler)
 
 # uncomment if using the standard c math library
 # if (UNIX)
