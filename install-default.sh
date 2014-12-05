@@ -15,6 +15,7 @@ sudo apt-get install  \
   netbeans            \
   sqlite3             \
   sqlitebrowser       \
+  mysql-client        \
   mysql-client-5.6    \
   mysql-server-5.6    \
   mysql-workbench     \
@@ -48,7 +49,6 @@ sudo apt-get install  \
   rstudio             \
   gnuplot             \
   gnuplot-qt          \
-  gnuplot-x11         \
   oaklisp             \
   mit-scheme          \
   ghc                 \
@@ -64,11 +64,6 @@ sudo apt-get install  \
   valkyrie            \
   kcachegrind         \
   cppcheck            \
-  qt5-default         \
-  qt5-qmake           \
-  qt4-default         \
-  qt4-designer        \
-  qt4-qmake           \
   openmpi-bin         \
   libopenmpi-dev      \
   libopenmpi1.6       \
@@ -101,7 +96,7 @@ sudo apt-get install  \
   libjaula1           \
   libblas-dev         \
   libblas3            \
-  libatlas3           \
+  libatlas3-base      \
   liblapack-dev       \
   liblapack3          \
   libeigen3-dev       \
