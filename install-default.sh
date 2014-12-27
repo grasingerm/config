@@ -34,6 +34,8 @@ sudo apt-get install  \
   python3-numexpr     \
   python3-sql         \
   python3-apsw        \
+  python-vtk          \
+  python-pyvtk        \
   idle-python3.4      \
   ruby2.0             \
   ruby-narray         \
@@ -108,6 +110,6 @@ sudo apt-get install  \
   libeigen3-dev       \
   libarpack2-dev      \
   libarmadillo-dev    \
-  libboost1.55-all-dev
+  libboost1.55-all-dev\
   
 sudo apt-get remove firefox thunderbird
