@@ -10,4 +10,4 @@ export CXXOPT="-O3"
 export CFLAGS="-Wall -Wextra -g -pedantic -pedantic-errors ${COPT} -std=${CSTD}"
 export CXXFLAGS="-Wall -Wextra -g -pedantic -pedantic-errors ${CXXOPT} -std=${CXXSTD}"
 
-export EDITOR="subl"
+export EDITOR="vim"
