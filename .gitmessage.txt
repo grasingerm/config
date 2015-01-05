@@ -1,3 +1,3 @@
 subject line
 
-[Fix|Mod|Ref|Rem|Rea]: what did you do?
+[Fix|Mod|Ref|Add|Test]: what did you do?
