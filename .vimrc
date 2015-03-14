@@ -3,20 +3,9 @@ set hidden
 set history=500
 set number
 
-set t_Co=256
-if has('gui_running')
-	colorscheme pencil
-	set background=light
-else
-	let base16colorspace=256
-	colorscheme base16-eighties
-	set background=dark
-endif
-
 set encoding=utf-8
 set backspace=indent,eol,start
 set autoread
-set grc=a:blinkon0
 set mouse=a
 
 set noswapfile
