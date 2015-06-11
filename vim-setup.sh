@@ -1,3 +1,5 @@
 #!/bin/bash
 
-bash <(curl https://github.com/Anthony1234567/Vimrc1234567/raw/master/install1thru7.sh -L)
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+cp .vimrc ~/.vimrc
+echo "Start vim, type :PluginInstall"
