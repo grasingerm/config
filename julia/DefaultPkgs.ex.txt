@@ -1,0 +1,15 @@
+# update Package METADATA
+.update
+
+.add
+PyPlot
+PyCall
+JSON
+YAML
+ArgParse
+
+.rm
+FooFooFoo # this is a comment after the fact
+
+.clone
+SomethingThatWontClone

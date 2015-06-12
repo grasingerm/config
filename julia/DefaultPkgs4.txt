@@ -1,0 +1,10 @@
+# update Package METADATA
+.update
+
+.add
+PyPlot
+PyCall
+JSON
+YAML
+ArgParse
+DistributedArrays
