@@ -1,0 +1,12 @@
+[url "https://github.com/"]
+  insteadOf = git://github.com/
+
+[user]
+	name = Matthew Grasinger
+	email = grasingerm@gmail.com
+[push]
+	default = matching
+[core]
+	editor = vim
+[github]
+	user = grasingerm
