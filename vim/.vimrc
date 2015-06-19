@@ -46,8 +46,6 @@ let g:monokai_italic = 1
 let g:monokai_thick_border = 1
 colorscheme monokai
 
-
-
 " General configuration
 set hidden
 set history=500
@@ -136,3 +134,5 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
+
+imap ;; <Esc>
