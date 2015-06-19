@@ -1,9 +1,9 @@
 #!/bin/bash
 
-ln -s ./unix/.bashrc ~/.bashrc
-ln -s ./vim/.vimrc ~/.vimrc
-ln -s ./git/.gitconfig ~/.gitconfig
-ln -s ./git/.gitmessage.txt ~/.gitmessage.txt
+ln ./unix/.bashrc ~/.bashrc
+ln ./vim/.vimrc ~/.vimrc
+ln ./git/.gitconfig ~/.gitconfig
+ln ./git/.gitmessage.txt ~/.gitmessage.txt
 
 if [ "$#" -ne 1 ]; then
   MYLOC=UNKNOWN
