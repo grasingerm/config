@@ -1,6 +1,6 @@
 filetype off " required
 " set the runtime path to include Vundle and initialize
-set rtp+=/home/grasingerm/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -33,19 +33,20 @@ filetype plugin indent on " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
 syntax enable
-" force terminal to use 256 colors
-set t_Co=256
-let g:monokai_italic = 1
-let g:monokai_thick_border = 1
-colorscheme monokai
-
-
 " Set extra options when running in GUI mode
 if has("gui_running")
   set guioptions-=T
   set guioptions-=e
   set guitablabel=%M\ %t
+else
+  "force terminal to use 256 colors
+  set t_Co=256
 endif
+let g:monokai_italic = 1
+let g:monokai_thick_border = 1
+colorscheme monokai
+
+
 
 " General configuration
 set hidden
