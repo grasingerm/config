@@ -1,13 +1,16 @@
 filetype off " required
 " set the runtime path to include Vundle and initialize
-set rtp+=/home/grasingerm/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'JuliaLang/julia-vim'
-Plugin 'pangloss/vim-javascript'
+Plugin 'bling/vim-airline'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'crusoexia/vim-monokai'
+Plugin 'dkprice/vim-easygrep'
 Plugin 'mileszs/ack.vim'
 Plugin 'rking/ag.vim'
 Plugin 'christoomey/vim-tmux-navigator'
@@ -25,7 +28,25 @@ filetype plugin indent on " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Colors and Fonts
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable syntax highlighting
 syntax enable
+" Set extra options when running in GUI mode
+if has("gui_running")
+  set guioptions-=T
+  set guioptions-=e
+  set guitablabel=%M\ %t
+else
+  "force terminal to use 256 colors
+  set t_Co=256
+endif
+let g:monokai_italic = 1
+let g:monokai_thick_border = 1
+colorscheme monokai
+
+" General configuration
 set hidden
 set history=500
 set number
@@ -89,23 +110,7 @@ set t_vb=
 set tm=500
 " Add a bit extra margin to the left
 set foldcolumn=1
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors and Fonts
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enable syntax highlighting
-syntax enable
-try
-colorscheme desert
-catch
-endtry
-set background=dark
-" Set extra options when running in GUI mode
-if has("gui_running")
-set guioptions-=T
-set guioptions-=e
-set t_Co=256
-set guitablabel=%M\ %t
-endif
+
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 " Use Unix as the standard file type
@@ -129,3 +134,5 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
+
+imap ;; <Esc>
