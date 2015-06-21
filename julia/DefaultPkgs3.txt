@@ -8,3 +8,12 @@ JSON
 YAML
 ArgParse
 HDF5
+ArrayViews
+Blocks
+IProfile
+ProfileView
+Lint
+Logging
+MPI
+OpenCL
+SQLite
