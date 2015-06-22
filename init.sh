@@ -13,7 +13,7 @@ else
   echo "location is '$MYLOC'"
 fi
 
-if [ ! -f ~/.profile ]; then touch ~/.profile; fi
-echo "export MYLOC=$MYLOC" >> ~/.profile
+if [ ! -f ~/.loc ]; then touch ~/.loc; fi
+echo "export MYLOC=$MYLOC" >> ~/.loc
 
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim

@@ -1,8 +1,9 @@
 #!/bin/bash
 
-if [ -f ~/.profile ]; then
-  source .profile
+if [ -f ~/.loc ]; then
+  source ~/.loc
 else
+  echo ".loc not found!"
   export MYLOC=UNKNOWN
 fi
 
@@ -40,21 +41,22 @@ function useclang() {
 }
 
 add2path /home/grasingerm/Dev/mads/bin/Release
-PYTHONPATH=$PYTHONPATH:.
+
+# Append `.` to PYTHONPATH
+if [ "$PYTHONPATH" = "" ]; then
+  export PYTHONPATH=.
+else
+  export PYTHONPATH=$PYTHONPATH:.
+fi
 
 # LANL specific vars and functions
-if [ $MYLOC == "LANL" ]; then
+if [ $MYLOC = "LANL" ]; then
   echo "This is LANL."
-  lanlsrc="bash/.lanl_bashrc" 
-  if [ -a $lanlsrc ]; then
-    source $lanlsrc
-  else
-    echo "$lanlsrc not found!"
-  fi
+  source ~/bash/.lanl_bashrc 
 fi # LANL
 
 # My personal configurations for Pitt and Home
-if [ $MYLOC == "PC" ]; then
+if [ $MYLOC = "PC" ]; then
   echo "This is mine?"
 
   useclang
