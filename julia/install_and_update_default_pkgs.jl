@@ -18,34 +18,38 @@ currls = add;
 
 println("Parsing input file ", ARGS[1], " ...");
 const f = open(ARGS[1]);
-while !eof(f)
-  line = readline(f);
-  print(line);
+try
+  while !eof(f)
+    line = readline(f);
+    print(line);
 
-  i = start(search(line, "#"));
-  if i != 0
-    pname = strip(line[1:i-1]);
-  else
-    pname = strip(line);
-  end
-
-  if pname == ""; continue; end
-  if prefix_f(pname, ".")
-    if pname == ".update"
-      Pkg.update();
-    elseif pname == ".add"
-      currls = add;
-    elseif pname == ".rm"
-      currls = rm;
-    elseif pname == ".clone"
-      currls = clone;
+    i = start(search(line, "#"));
+    if i != 0
+      pname = strip(line[1:i-1]);
     else
-      warn("`$pname` command is not understood");
+      pname = strip(line);
     end
-    continue;
-  end
 
-  push!(currls, pname);
+    if pname == ""; continue; end
+    if prefix_f(pname, ".")
+      if pname == ".update"
+        Pkg.update();
+      elseif pname == ".add"
+        currls = add;
+      elseif pname == ".rm"
+        currls = rm;
+      elseif pname == ".clone"
+        currls = clone;
+      else
+        warn("`$pname` command is not understood");
+      end
+      continue;
+    end
+
+    push!(currls, pname);
+  end
+finally
+  close(f);
 end
 
 println();
