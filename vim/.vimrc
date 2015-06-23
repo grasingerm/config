@@ -42,7 +42,6 @@ else
   "force terminal to use 256 colors
   set t_Co=256
 endif
-let g:monokai_italic = 1
 let g:monokai_thick_border = 1
 colorscheme monokai
 
@@ -135,4 +134,9 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
+" Map ;; to <Esc> to make exitting insert mode easier 
 imap ;; <Esc>
+
+" Map for split window resizing
+map <C-up> :res +5 <Return>
+map <C-down> :res -5 <Return>
