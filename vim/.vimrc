@@ -140,3 +140,5 @@ imap ;; <Esc>
 " Map for split window resizing
 map <C-up> :res +5 <Return>
 map <C-down> :res -5 <Return>
+map <C-right> :vertical resize +5
+map <C-left> :vertical resize -5
