@@ -40,8 +40,6 @@ function useclang() {
   export CXX=clang-3.6++
 }
 
-add2path /home/grasingerm/Dev/mads/bin/Release
-
 # Append `.` to PYTHONPATH
 if [ "$PYTHONPATH" = "" ]; then
   export PYTHONPATH=.
@@ -52,11 +50,12 @@ fi
 # LANL specific vars and functions
 if [ $MYLOC = "LANL" ]; then
   echo "This is LANL."
+  add2path /home/grasingerm/Dev/mads/bin/Release
   source ~/bash/.lanl_bashrc 
 fi # LANL
 
 # My personal configurations for Pitt and Home
-if [ $MYLOC = "PC" ]; then
+if [ $MYLOC = "PC" ] || [ $MYLOC = "MSYS" ]; then
   echo "This is mine?"
 
   useclang
@@ -67,4 +66,13 @@ if [ $MYLOC = "PC" ]; then
   alias xconnectpittws="ssh -X matthewgrasinger@136.142.112.33"
   alias connectpittpc="ssh clementine@136.142.112.27"
   alias xconnectpittpc="ssh -X clementine@136.142.112.27"
+
+  if [ $MYLOC = "MSYS" ]; then
+    add2path "/c/Program Files (x86)/Vim/vim74"
+    alias vim=gvim.exe
+    export WINHOME="/c/Users/Matthew"
+    function go2win() {
+      cd $WINHOME/$1
+    }
+  fi
 fi # PC
