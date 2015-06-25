@@ -40,6 +40,22 @@ function useclang() {
   export CXX=clang-3.6++
 }
 
+function gitfetchall () {
+  if [ $# -eq 0 ]; then
+    dir=.
+  else
+    dir=$1
+  fi
+
+  for i in $dir/*; do
+    if [ -d $i ]; then
+      pushd $i
+      git pull origin master
+      popd
+    fi
+  done
+}
+
 # Append `.` to PYTHONPATH
 if [ "$PYTHONPATH" = "" ]; then
   export PYTHONPATH=.
