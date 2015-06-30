@@ -12,7 +12,14 @@ alias ls="ls --color"
 alias la="ls -a --color"
 alias ll="ls -al --color"
 alias lt="ls -altr --color"
+alias lr="ls -alR --color"
 alias cup="cd ../"
+
+# count files and directories in the current path
+function lscount() {
+  count=$[`ls -l "$@" | wc -l` - 1]
+  echo $count
+}
 
 function add2path() {
   export PATH=$PATH:$1
