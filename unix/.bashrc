@@ -104,15 +104,12 @@ fi
 
 # LANL specific vars and functions
 if [ $MYLOC = "LANL" ] && [ $TERM = "xterm" ]; then
-  echo "This is LANL."
   add2path /home/grasingerm/Dev/mads/bin/Release
   source ~/bash/.lanl_bashrc 
 fi # LANL
 
 # My personal configurations for Pitt and Home
-if [ $MYLOC = "PC" ] && [ $TERM = "xterm" ] || [ $MYLOC = "MSYS" ] && [ $TERM = "xterm" ]; then
-  echo "This is mine?"
-
+if [ $MYLOC = "PC" ] || [ $MYLOC = "MSYS" ]; then
   wsip=136.142.112.33
   pcip=136.142.112.27
 
