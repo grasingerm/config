@@ -7,6 +7,8 @@ else
   export MYLOC=UNKNOWN
 fi
 
+export EDITOR=vim
+
 alias gstat="git status --short"
 alias ls="ls --color"
 alias la="ls -a --color"
