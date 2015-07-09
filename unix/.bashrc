@@ -9,6 +9,7 @@ fi
 
 export EDITOR=vim
 
+alias tmux="TERM=screen-256color-bce tmux"
 alias gstat="git status --short"
 alias ls="ls --color"
 alias la="ls -a --color"
@@ -110,6 +111,12 @@ fi # LANL
 
 # My personal configurations for Pitt and Home
 if [ $MYLOC = "PC" ] || [ $MYLOC = "MSYS" ]; then
+  function apt-refresh() {
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get autoremove
+  }
+
   wsip=136.142.112.33
   pcip=136.142.112.27
 
