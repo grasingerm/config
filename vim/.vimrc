@@ -80,6 +80,8 @@ set wildignore+=.git\*,.hg\*,.svn\*
 endif
 "Always show current position
 set ruler
+set colorcolumn=80
+set showmode
 " Height of the command bar
 set cmdheight=2
 " A buffer becomes hidden when it is abandoned
