@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ "$#" -neq 1 ]; then
+if [ "$#" -ne 1 ]; then
   echo "Please pass repository type as argument, i.e. trusty"
   exit 1
 fi
