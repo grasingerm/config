@@ -44,6 +44,7 @@ sudo apt-get install  \
   python-yaml         \
   python-matplotlib   \
   python-dateutil     \
+  python-vtk6         \
   idle-python2.7      \
   python3.4           \
   python3-dateutil    \
@@ -53,8 +54,7 @@ sudo apt-get install  \
   python3-numexpr     \
   python3-sql         \
   python3-apsw        \
-  python-vtk          \
-  python-pyvtk        \
+  python3-vtk6        \
   idle-python3.4      \
   ruby2.0             \
   ruby-narray         \
