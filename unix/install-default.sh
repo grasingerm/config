@@ -1,18 +1,29 @@
 #!/bin/bash
 
+if [ "$#" -neq 1 ]; then
+  echo "Please pass repository type as argument, i.e. trusty"
+  exit 1
+fi
+
+echo "Adding virtualbox to repository..."
+sudo echo "deb http://download.virtualbox.org/virtualbox/debian $1 contrib" \
+  >> /etc/apt/sources.list
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+
+echo "Adding julia to repository..."
+sudo apt-add-repository ppa:staticfloat/juliareleases 
+
 sudo apt-get update
 sudo apt-get upgrade
 
 sudo apt-get install  \
-  grive               \
   chromium-browser    \
   freemind            \
-  libreoffice         \
-  lyx                 \
   texlive-full        \
   luatex              \
+  texstudio           \
+  vim                 \
   sublime-text        \
-  netbeans            \
   sqlite3             \
   sqlitebrowser       \
   mysql-client        \
@@ -25,6 +36,10 @@ sudo apt-get install  \
   cmake               \
   python2.7           \
   python-pysqlite2    \
+  python-numpy        \
+  python-yaml         \
+  python-matplotlib   \
+  python-dateutil     \
   idle-python2.7      \
   python3.4           \
   python3-dateutil    \
@@ -50,12 +65,12 @@ sudo apt-get install  \
   octave              \
   rstudio             \
   gnuplot             \
-  gnuplot-qt          \
+  gnuplot-x11         \
   oaklisp             \
   mit-scheme          \
   ghc                 \
   paraview            \
-  gcc-4.9-base        \
+  gcc-4.8             \
   g++-4.8             \
   clang-3.5           \
   clang-format-3.5    \
@@ -95,13 +110,8 @@ sudo apt-get install  \
   libyaml-cpp-dev     \
   libyaml-cpp0.3      \
   libjson-c-dev       \
-  libyajl2            \
-  libyajl-dev         \
-  yajl-tools          \
   libjansson-dev      \
   libjansson4         \
-  libjaula-dev        \
-  libjaula1           \
   libblas-dev         \
   libblas3            \
   libatlas3-base      \
@@ -109,7 +119,11 @@ sudo apt-get install  \
   liblapack3          \
   libeigen3-dev       \
   libarpack2-dev      \
+  libarpack2          \
   libarmadillo-dev    \
+  libarmadillo4       \
   libboost1.55-all-dev\
+  virtualbox-5.0      \
+  julia               \
   
 sudo apt-get remove firefox thunderbird
