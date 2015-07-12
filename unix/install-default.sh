@@ -6,18 +6,22 @@ if [ "$#" -ne 1 ]; then
 fi
 
 echo "Adding virtualbox to repository..."
-sudo echo "deb http://download.virtualbox.org/virtualbox/debian $1 contrib" \
-  >> /etc/apt/sources.list
+echo "deb http://download.virtualbox.org/virtualbox/debian $1 contrib" | sudo tee /etc/apt/sources.list
 wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
 
 echo "Adding julia to repository..."
-sudo apt-add-repository ppa:staticfloat/juliareleases 
+sudo apt-add-repository ppa:staticfloat/juliareleases
+
+echo "Adding spotify to repository..."
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys D2C19886
+echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
 sudo apt-get update
 sudo apt-get upgrade
 
 sudo apt-get install  \
   chromium-browser    \
+  spotify-client      \
   freemind            \
   texlive-full        \
   luatex              \
