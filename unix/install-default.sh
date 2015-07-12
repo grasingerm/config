@@ -22,6 +22,7 @@ sudo apt-get upgrade
 sudo apt-get install  \
   chromium-browser    \
   spotify-client      \
+  htop                \
   freemind            \
   texlive-full        \
   luatex              \
