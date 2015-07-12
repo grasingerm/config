@@ -58,6 +58,8 @@ sudo apt-get install  \
   idle-python3.4      \
   ruby2.0             \
   ruby-narray         \
+  ruby-gsl            \
+  ruby-distribution   \
   apache2             \
   php5                \
   php5-curl           \
@@ -67,12 +69,14 @@ sudo apt-get install  \
   php-pear            \
   phpunit             \
   octave              \
-  rstudio             \
+  r-base              \
+  r-base-dev          \
   gnuplot             \
   gnuplot-x11         \
   oaklisp             \
   mit-scheme          \
   ghc                 \
+  libghc-hmatrix-dev  \
   paraview            \
   gcc-4.8             \
   g++-4.8             \
@@ -98,6 +102,10 @@ sudo apt-get install  \
   libopencv-gpu-dev   \
   libopencv-gpu2.4    \
   libopencv-core2.4   \
+  libgsl0-dev         \
+  libgsl0-dbg         \
+  gsl-bin             \
+  libgsl0ldbl         \
   libgtest-dev        \
   libvtk6             \
   libvtk6-dev         \
@@ -129,5 +137,14 @@ sudo apt-get install  \
   libboost1.55-all-dev\
   virtualbox-5.0      \
   julia               \
+
+
+echo "Installing default julia v0.3.x packages..."
+julia julia/install_and_update_default_pkgs.jl DefaultPkgs3.txt
   
-sudo apt-get remove firefox thunderbird
+echo "Downloading and installing rstudio..."
+URL='https://download1.rstudio.org/rstudio-0.99.465-i386.deb'; FILE=`mktemp`;
+wget "$URL" -qO $FILE && sudo dpkg -i $FILE; rm $FILE
+
+echo "Removing firefox..."
+sudo apt-get remove firefox
