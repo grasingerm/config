@@ -19,6 +19,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'dkprice/vim-easygrep'
 Plugin 'mileszs/ack.vim'
 Plugin 'rking/ag.vim'
+Plugin 'jpalardy/vim-slime'
 " All of your Plugins must be added before the following line
 call vundle#end() " required
 filetype plugin indent on " required
