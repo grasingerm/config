@@ -6,9 +6,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'JuliaLang/julia-vim'
-Plugin 'klen/python-mode'
 Plugin 'elzr/vim-json'
 Plugin 'c.vim'
 Plugin 'octol/vim-cpp-enhanced-highlight'

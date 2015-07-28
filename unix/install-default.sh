@@ -40,6 +40,7 @@ sudo apt-get install  \
   make                \
   cmake               \
   python2.7           \
+  idle-python2.7      \
   python-pysqlite2    \
   python-numpy        \
   python-yaml         \
@@ -48,6 +49,7 @@ sudo apt-get install  \
   python-vtk6         \
   idle-python2.7      \
   python3.4           \
+  idle-python3.4      \
   python3-dateutil    \
   python3-yaml        \
   python3-numpy       \
