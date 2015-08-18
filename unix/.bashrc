@@ -64,9 +64,9 @@ if ${use_color} ; then
 	fi
 
 	if [[ ${EUID} == 0 ]] ; then
-		PS1='\n\[\033[1;31m\][\h\[\033[1;34m\] \w\[\033[1;31m\]]\[\033[1;37m\]\n\$\[\033[00m\] '
+		PS1='\n\[\033[1;32m\][\h\[\033[1;34m\] \w\[\033[1;32m\]]\[\033[1;37m\]\n\$\[\033[00m\] '
 	else
-		PS1='\n\[\033[1;31m\][\u@\h\[\033[1;34m\] \w\[\033[1;31m\]]\[\033[1;37m\]\n\$\[\033[00m\] '
+		PS1='\n\[\033[1;32m\][\u@\h\[\033[1;34m\] \w\[\033[1;32m\]]\[\033[1;37m\]\n\$\[\033[00m\] '
 	fi
 
 	alias ls='ls --color=auto'
@@ -223,22 +223,29 @@ defaultflags="-Wall -Wextra"
 debugflags="$defaultflags -g -pedantic -pedantic-errors"
 releaseflags="$defaultflags -O3"
 
-function setflagsdefault () {
+function clearflags() {
+  export CFLAGS=""
+  export CXXFLAGS=""
+}
+
+function setflagsdefault () { 
+  clearflags
   add2cflags "$defaultflags -std=c99"
   add2cxxflags "$defaultflags -std=c++11"
 }
 
 function setflagsdebug () {
+  clearflags
   add2cflags "$debugflags -std=c99"
   add2cxxflags "$debugflags -std=c++11"
 }
 
 function setflagsrelease () {
+  clearflags
   add2cflags "$releaseflags -std=c99"
   add2cxxflags "$releaseflags -std=c++11"
 }
 
-usegcc
 setflagsdefault
 
 # Append `.` to PYTHONPATH
@@ -288,6 +295,9 @@ if [ $MYLOC = "PC" ] || [ $MYLOC = "MSYS" ]; then
     fi
   }
 
+  export SPRNG_INC="/usr/local/sprng2.0/include"
+  export SPRNG_LIB="/usr/local/sprng2.0/lib"
+
   if [ $MYLOC = "MSYS" ]; then
     add2path "/c/Program Files (x86)/Vim/vim74"
     alias vim=gvim.exe
@@ -296,4 +306,7 @@ if [ $MYLOC = "PC" ] || [ $MYLOC = "MSYS" ]; then
       cd $WINHOME/$1
     }
   fi
+
+  alias clang=clang-3.6
+  alias clang++=clang++-3.6
 fi # PC
