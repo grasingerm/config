@@ -63,11 +63,30 @@ if ${use_color} ; then
 		fi
 	fi
 
-	if [[ ${EUID} == 0 ]] ; then
-		PS1='\n\[\033[1;32m\][\h\[\033[1;34m\] \w\[\033[1;32m\]]\[\033[1;37m\]\n\$\[\033[00m\] '
-	else
-		PS1='\n\[\033[1;32m\][\u@\h\[\033[1;34m\] \w\[\033[1;32m\]]\[\033[1;37m\]\n\$\[\033[00m\] '
-	fi
+	export PROMPT_COMMAND=__prompt_command  # Func to gen PS1 after CMDs
+
+	function __prompt_command() {
+    local EXIT="$?"             # This needs to be first
+    PS1=""
+
+    local Red='\[\e[0;31m\]'
+    local Gre='\[\e[1;32m\]'
+    local BGre='\[\e[0;32m\]'
+    local BCyn='\[\e[0;36m\]'
+    local Wht='\[\e[0;37m\]'
+    local BWht='\[\e[1;37m\]'
+    local BBlu='\[\e[1;34m\]'
+
+    PS1+="\n${BGre}\u${BCyn}@\h"
+
+    if [ $EXIT != 0 ]; then
+      PS1+=" ${Red}:("      # Add red if exit code non 0
+    else
+      PS1+=" ${Gre}:)"
+    fi
+
+    PS1+=" ${BBlu}\w${BWht}\n\$${Wht} "
+	}
 
 	alias ls='ls --color=auto'
 	alias grep='grep --colour=auto'
