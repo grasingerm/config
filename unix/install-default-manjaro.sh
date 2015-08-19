@@ -85,7 +85,7 @@ yaourt -S          massif-visualizer          \
 
 # update everything...
 sudo pacman -Suy
-sudo yaort -Syua
+sudo yaourt -Syua
 
 # install python modules
 sudo pip install numpy matplotlib dateutil yaml idle
