@@ -143,7 +143,9 @@ sudo apt-get install  \
 
 
 echo "Installing default julia v0.3.x packages..."
+pushd ~/Dev/config/julia
 julia julia/install_and_update_default_pkgs.jl DefaultPkgs3.txt
+popd
   
 echo "Downloading and installing rstudio..."
 URL='https://download1.rstudio.org/rstudio-0.99.465-i386.deb'; FILE=`mktemp`;

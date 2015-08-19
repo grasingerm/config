@@ -5,6 +5,7 @@ ln -s `readlink -f ./unix/.tmux.conf` ~/.tmux.conf
 ln -s `readlink -f ./vim/.vimrc` ~/.vimrc
 ln -s `readlink -f ./git/.gitconfig` ~/.gitconfig
 ln -s `readlink -f ./git/.gitmessage.txt` ~/.gitmessage.txt
+ln -s `readlink -f ./julia/.juliarc.jl` ~/.juliarc.jl
 
 if [ ! -f ~/.loc ]; then
   if [ "$#" -ne 1 ]; then
