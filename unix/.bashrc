@@ -73,7 +73,7 @@ if ${use_color} ; then
     local Gre='\[\e[1;32m\]'
     local BGre='\[\e[0;32m\]'
     local BCyn='\[\e[0;36m\]'
-    local Wht='\[\e[0;37m\]'
+    local Wht='\[\e[0m\]'
     local BWht='\[\e[1;37m\]'
     local BBlu='\[\e[1;34m\]'
 
