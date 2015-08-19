@@ -325,7 +325,4 @@ if [ $MYLOC = "PC" ] || [ $MYLOC = "MSYS" ]; then
       cd $WINHOME/$1
     }
   fi
-
-  alias clang=clang-3.6
-  alias clang++=clang++-3.6
 fi # PC
