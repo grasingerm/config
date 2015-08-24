@@ -23,42 +23,27 @@ sudo apt-get install  \
   chromium-browser    \
   spotify-client      \
   htop                \
-  freemind            \
   texlive-full        \
   luatex              \
   texstudio           \
   vim                 \
-  sublime-text        \
   sqlite3             \
   sqlitebrowser       \
-  mysql-client        \
-  mysql-client-5.6    \
-  mysql-server-5.6    \
-  mysql-workbench     \
+  mariadb-client      \
+  mariadb-server      \
+  libmariadbclient-dev\
+  libmariadbd-dev     \
+  mariadb-test        \
   git                 \
   git-gui             \
   make                \
   cmake               \
   python2.7           \
   idle-python2.7      \
-  python-pysqlite2    \
-  python-numpy        \
-  python-yaml         \
-  python-matplotlib   \
-  python-dateutil     \
-  python-vtk6         \
-  idle-python2.7      \
+  python-pip          \
   python3.4           \
   idle-python3.4      \
-  python3-dateutil    \
-  python3-yaml        \
-  python3-numpy       \
-  python3-matplotlib  \
-  python3-numexpr     \
-  python3-sql         \
-  python3-apsw        \
-  python3-vtk6        \
-  idle-python3.4      \
+  python3-pip         \
   ruby2.0             \
   ruby-narray         \
   ruby-gsl            \
@@ -77,16 +62,14 @@ sudo apt-get install  \
   gnuplot             \
   gnuplot-x11         \
   oaklisp             \
-  mit-scheme          \
+  stalin              \
   ghc                 \
   libghc-hmatrix-dev  \
   paraview            \
-  gcc-4.8             \
-  g++-4.8             \
-  clang-3.5           \
-  clang-format-3.5    \
-  clang-modernize-3.5 \
-  gdb                 \
+  colorgcc            \
+  gfortran-multilib   \
+  clang-3.6           \
+  tcc                 \
   gdb64               \
   valgrind            \
   valkyrie            \
@@ -101,29 +84,23 @@ sudo apt-get install  \
   openmpi-bin         \
   libopenmpi-dev      \
   libopenmpi1.6       \
-  libopencv-dev       \
-  libopencv-gpu-dev   \
-  libopencv-gpu2.4    \
-  libopencv-core2.4   \
   libgsl0-dev         \
   libgsl0-dbg         \
   gsl-bin             \
   libgsl0ldbl         \
   libgtest-dev        \
-  libvtk6             \
-  libvtk6-dev         \
   libsqlite3-0        \
   libsqlite3-dev      \
-  libmysqlclient-dev  \
-  libmysqlclient18    \
   libgtk-3-0          \
   libgtk-3-dev        \
   libgtksourceview-3.0-1    \
   libgtksourceview-3.0-dev  \
   libcairo2           \
   libcairo2-dev       \
+  libyaml-0-2         \
+  libyaml-dev         \
   libyaml-cpp-dev     \
-  libyaml-cpp0.3      \
+  libyaml-cpp0.5      \
   libjson-c-dev       \
   libjansson-dev      \
   libjansson4         \
@@ -137,13 +114,20 @@ sudo apt-get install  \
   libarpack2          \
   libarmadillo-dev    \
   libarmadillo4       \
-  libboost1.55-all-dev\
+  libscalapack-mpi-dev\
+  libscalapack-mpi1   \
+  libboost-all-dev    \
   virtualbox-5.0      \
   julia               \
+  vpnc                \
+  p7zip-full
 
+echo "Installing python modules..."
+sudo pip install numpy matplotlib dateutil pyyaml
+sudo pip3 install numpy matplotlib dateutil pyyaml
 
 echo "Installing default julia v0.3.x packages..."
-pushd ~/Dev/config/julia
+pushd ~/Shared/Dev/config/
 julia julia/install_and_update_default_pkgs.jl DefaultPkgs3.txt
 popd
   

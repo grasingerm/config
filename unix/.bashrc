@@ -173,7 +173,6 @@ fi
 export EDITOR=vim
 
 alias tmux="TERM=screen-256color-bce tmux"
-alias gstat="git status --short"
 alias ls='ls --color=auto'
 #alias ls="ls --color"
 alias la="ls -a --color=auto"
@@ -181,6 +180,18 @@ alias ll="ls -al --color=auto"
 alias lt="ls -altr --color=auto"
 alias lr="ls -alR --color=auto"
 alias cup="cd ../"
+
+alias gull='git pull'
+alias gadd='git add'
+alias gush='git push'
+alias gpom='git push origin master'
+alias glom='git pull origin master'
+alias giff='git diff'
+alias gommit='git commit'
+alias granch='git branch'
+alias glog='git log --graph'
+alias gstat='git status --short'
+alias gstatl='git status --long'
 
 function gitfetchall () {
   if [ $# -eq 0 ]; then

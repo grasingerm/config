@@ -131,6 +131,10 @@ set scrolloff=10
 set sidescrolloff=15
 set sidescroll=1
 
+" C / C++ settings
+set cindent
+set cinoptions=g-1
+
 " Better split navigation and opening
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
