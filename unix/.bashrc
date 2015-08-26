@@ -189,7 +189,7 @@ alias glom='git pull origin master'
 alias giff='git diff'
 alias gommit='git commit'
 alias granch='git branch'
-alias glog='git log --graph'
+alias glog='git log --graph --pretty=format:"%ai%C(reset)%C(yellow) %h %C(bold white)%s %C(cyan)%an%C(yellow) <%cE> %C(reset)%Cgreen%d"  --color=auto --full-history --date-order --all'
 alias gstat='git status --short'
 alias gstatl='git status --long'
 
@@ -239,16 +239,6 @@ function add2cxxflags() {
   export CXXFLAGS="$CXXFLAGS $1"
 }
 
-function usegcc() {
-  export CC=gcc-4.8
-  export CXX=g++-4.8
-}
-
-function useclang() {
-  export CC=clang-3.6
-  export CXX=clang-3.6++
-}
-
 defaultflags="-Wall -Wextra"
 debugflags="$defaultflags -g -pedantic -pedantic-errors"
 releaseflags="$defaultflags -O3"
@@ -278,6 +268,11 @@ function setflagsrelease () {
 
 setflagsdefault
 
+alias gxxf="g++ $CXXFLAGS"
+alias clangxxf="clang++ $CXXFLAGS"
+alias gccf="gcc $CFLAGS"
+alias clangf="clang $CFLAGS"
+
 # Append `.` to PYTHONPATH
 if [ "$PYTHONPATH" = "" ]; then
   export PYTHONPATH=.
@@ -301,11 +296,14 @@ if [ $MYLOC = "PC" ] || [ $MYLOC = "MSYS" ]; then
 
   wsip=136.142.112.33
   pcip=136.142.112.27
+  ship=136.142.112.254
 
   alias connpittws="ssh matthewgrasinger@$wsip"
   alias xconnpittws="ssh -X matthewgrasinger@$wsip"
   alias connpittpc="ssh clementine@$pcip"
   alias xconnpittpc="ssh -X clementine@$pcip"
+  alias connpittsh="ssh matt@$ship"
+  alias xconnpittsh="ssh -X matt@$ship"
 
   function fetchpittws ()
   {

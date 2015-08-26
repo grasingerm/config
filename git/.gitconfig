@@ -7,6 +7,7 @@
 [push]
 	default = matching
 [core]
-	editor = vim
+  editor = vim
+  pager = less -S
 [github]
 	user = grasingerm
