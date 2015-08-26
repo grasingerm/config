@@ -1,0 +1,58 @@
+#OFFICIAL UBUNTU REPOS                             #
+#------------------------------------------------------------------------------#
+
+
+###### Ubuntu Main Repos
+deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse 
+deb-src http://us.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse 
+
+###### Ubuntu Update Repos
+deb http://us.archive.ubuntu.com/ubuntu/ trusty-security main restricted universe multiverse 
+deb http://us.archive.ubuntu.com/ubuntu/ trusty-updates main restricted universe multiverse 
+deb-src http://us.archive.ubuntu.com/ubuntu/ trusty-security main restricted universe multiverse 
+deb-src http://us.archive.ubuntu.com/ubuntu/ trusty-updates main restricted universe multiverse 
+
+###### Ubuntu Partner Repo
+deb http://archive.canonical.com/ubuntu trusty partner
+deb-src http://archive.canonical.com/ubuntu trusty partner
+
+###### Ubuntu Extras Repo
+deb-src http://extras.ubuntu.com/ubuntu trusty main
+
+#------------------------------------------------------------------------------#
+#                           UNOFFICIAL UBUNTU REPOS                            #
+#------------------------------------------------------------------------------#
+
+
+###### 3rd Party Binary Repos
+
+#### Dropbox - http://dropbox.com
+## Run this command: sudo apt-key adv --keyserver pgp.mit.edu --recv-keys 5044912E
+deb http://linux.dropbox.com/ubuntu/ trusty main
+
+#### MariaDB - https://mariadb.org
+## Run this command: apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
+deb http://mirrors.coreix.net/mariadb/repo/10.1/ubuntu trusty main
+
+#### Spotify for Linux Preview - http://www.spotify.com/
+## Run this command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4E9CFF4E
+deb http://repository.spotify.com stable non-free
+
+#### UNetbootin PPA - http://unetbootin.sourceforge.net/
+## Run this command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FC91AE7E
+deb http://ppa.launchpad.net/gezakovacs/ppa/ubuntu trusty main
+
+#### VirtualBox - http://www.virtualbox.org
+## Run this command: wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
+deb http://download.virtualbox.org/virtualbox/debian trusty contrib
+
+
+####### 3rd Party Source Repos
+
+#### MariaDB (Source) - https://mariadb.org
+## Run this command: apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a1bb943db
+deb-src http://mirrors.coreix.net/mariadb/repo/10.1/ubuntu trusty main
+
+#### UNetbootin PPA (Source) - http://unetbootin.sourceforge.net/
+## Run this command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FC91AE7E
+deb-src http://ppa.launchpad.net/gezakovacs/ppa/ubuntu trusty main
