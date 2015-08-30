@@ -240,7 +240,7 @@ function add2cxxflags() {
 }
 
 defaultflags="-Wall -Wextra"
-debugflags="$defaultflags -g -pedantic -pedantic-errors"
+debugflags="$defaultflags -Wpedantic -g -pedantic -pedantic-errors"
 releaseflags="$defaultflags -O3"
 
 function clearflags() {
@@ -266,7 +266,7 @@ function setflagsrelease () {
   add2cxxflags "$releaseflags -std=c++11"
 }
 
-setflagsdefault
+setflagsdebug
 
 alias gxxf="g++ $CXXFLAGS"
 alias clangxxf="clang++ $CXXFLAGS"
