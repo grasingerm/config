@@ -1,0 +1,15 @@
+# copy this file to /etc/ssh/sshd_config
+# sudo restart ssh
+# or sudo systemctl restart ssh
+# copy issue to /etc/issue
+
+Port 22
+AddressFamily any
+
+PasswordAuthentication yes
+
+# Change to no to disable s/key passwords
+ChallengeResponseAuthentication no
+
+AllowUsers clementine
+PermitRootLogin no
