@@ -273,6 +273,48 @@ alias clangxxf="clang++ $CXXFLAGS"
 alias gccf="gcc $CFLAGS"
 alias clangf="clang $CFLAGS"
 
+function cmfunc ()
+{
+  if [ $# -eq 3 ]; then
+    mkdir build
+    cd build
+    cmake -DCMAKE_BUILD_TYPE=$1 -DCMAKE_CC_COMPILER=$2 \
+          -DCMAKE_CXX_COMPILER=$3 ..
+    make
+  else
+    echo "usage: cmfunc \$build_type \$cc \$cxx"
+    echo "\$build_type = [None, Debug, Release, RelWithDebInfo, MinSizeRel]"
+  fi
+}
+
+function cmdebug ()
+{
+  if [ $# -eq 2 ]; then
+    mkdir build
+    cd build
+    cmfunc Debug $1 $2
+    make
+  elif [ $# -eq 0 ]; then
+    cmfunc Debug $CC $CXX
+  else
+    echo "usage: cmdebug [\$cc] [\$cxx]"
+  fi
+}
+
+function cmrel ()
+{
+  if [ $# -eq 2 ]; then
+    mkdir build
+    cd build
+    cmfunc Release $1 $2
+    make
+  elif [ $# -eq 0 ]; then
+    cmfunc Release $CC $CXX
+  else
+    echo "usage: cmrel [\$cc] [\$cxx]"
+  fi
+}
+
 # Append `.` to PYTHONPATH
 if [ "$PYTHONPATH" = "" ]; then
   export PYTHONPATH=.
