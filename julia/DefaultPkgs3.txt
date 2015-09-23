@@ -8,6 +8,7 @@ JSON
 YAML
 ArgParse
 HDF5
+JLD
 ArrayViews
 Blocks
 IProfile
