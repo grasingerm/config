@@ -278,11 +278,22 @@ function cmfunc ()
   if [ $# -eq 3 ]; then
     mkdir build
     cd build
-    cmake -DCMAKE_BUILD_TYPE=$1 -DCMAKE_CC_COMPILER=$2 \
+    cmake -DCMAKE_BUILD_TYPE=$1 -DCMAKE_C_COMPILER=$2 \
           -DCMAKE_CXX_COMPILER=$3 ..
     make
+  elif [ $# -eq 1 ]; then
+    if [ -z "$CC" ]; then
+      CC=cc
+    fi
+    if [ -z "$CXX" ]; then
+      CXX=c++
+    fi
+    mkdir build
+    cd build
+    cmake -DCMAKE_BUILD_TYPE=$1 -DCMAKE_C_COMPILER=$CC \
+          -DCMAKE_CXX_COMPILER=$CXX ..
   else
-    echo "usage: cmfunc \$build_type \$cc \$cxx"
+    echo "usage: cmfunc \$build_type [\$cc] [\$cxx]"
     echo "\$build_type = [None, Debug, Release, RelWithDebInfo, MinSizeRel]"
   fi
 }
@@ -295,7 +306,7 @@ function cmdebug ()
     cmfunc Debug $1 $2
     make
   elif [ $# -eq 0 ]; then
-    cmfunc Debug $CC $CXX
+    cmfunc Debug
   else
     echo "usage: cmdebug [\$cc] [\$cxx]"
   fi
@@ -309,7 +320,7 @@ function cmrel ()
     cmfunc Release $1 $2
     make
   elif [ $# -eq 0 ]; then
-    cmfunc Release $CC $CXX
+    cmfunc Release
   else
     echo "usage: cmrel [\$cc] [\$cxx]"
   fi
