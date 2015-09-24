@@ -153,3 +153,7 @@ map <C-up> :res +5 <Return>
 map <C-down> :res -5 <Return>
 map <C-right> :vertical resize +5 <Return>
 map <C-left> :vertical resize -5 <Return>
+
+" Map for clang-format
+"map <C-K> :pyf <path-to-this-file>/clang-format.py<cr>
+"imap <C-K> <c-o>:pyf <path-to-this-file>/clang-format.py<cr>
