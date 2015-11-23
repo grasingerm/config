@@ -74,22 +74,24 @@ sudo pacman -S     chromium                   \
                    gnuplot                    \
                    virtualbox                 \
                    skype                      \
-                   boinc
+                   boinc                      \
+                   --noconfirm
 
 yaourt -S          massif-visualizer          \
                    paraview                   \
                    visit-bin                  \
                    armadillo                  \
                    scalapack                  \
-                   rstudio-desktop-bin 
+                   rstudio-desktop-bin        \
+                   --noconfirm
 
 # update everything...
 sudo pacman -Suy
 sudo yaourt -Syua
 
 # install python modules
-sudo pip install numpy matplotlib dateutil yaml idle
-sudo pip2 install numpy matplotlib dateutil yaml idle
+sudo pip install numpy matplotlib dateutil pyyaml idle
+sudo pip2 install numpy matplotlib dateutil pyyaml idle
 
 # install julia modules
 pushd ~/Dev/config/julia
