@@ -167,14 +167,10 @@ else
   export MYLOC=UNKNOWN
 fi
 
-# badass terminal colors
-#PS1='\[\e[0;32m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1;32m\]\$\[\e[m\] \[\e[1;37m\]'
-
 export EDITOR=vim
 
 alias tmux="TERM=screen-256color-bce tmux"
 alias ls='ls --color=auto'
-#alias ls="ls --color"
 alias la="ls -a --color=auto"
 alias ll="ls -al --color=auto"
 alias lt="ls -altr --color=auto"
@@ -251,19 +247,19 @@ function clearflags() {
 function setflagsdefault () { 
   clearflags
   add2cflags "$defaultflags -std=c99"
-  add2cxxflags "$defaultflags -std=c++11"
+  add2cxxflags "$defaultflags -std=c++14"
 }
 
 function setflagsdebug () {
   clearflags
   add2cflags "$debugflags -std=c99"
-  add2cxxflags "$debugflags -std=c++11"
+  add2cxxflags "$debugflags -std=c++14"
 }
 
 function setflagsrelease () {
   clearflags
   add2cflags "$releaseflags -std=c99"
-  add2cxxflags "$releaseflags -std=c++11"
+  add2cxxflags "$releaseflags -std=c++14"
 }
 
 setflagsdebug
@@ -328,6 +324,18 @@ else
   export PYTHONPATH=$PYTHONPATH:.
 fi
 
+function pip-upgrade ()
+{
+  if [ $# -ge 1 ]; then
+    local pip_cmd=$1  
+  else
+    local pip_cmd=pip
+  fi
+    
+  sudo $pip_cmd freeze --local | grep -v '^\-e' | cut -d = -f 1 | \
+       xargs -n1 $pip_cmd install -U
+}
+
 # LANL specific vars and functions
 if [ $MYLOC = "LANL" ] && [ $TERM = "xterm" ]; then
   add2path /home/grasingerm/Dev/mads/bin/Release
@@ -336,12 +344,6 @@ fi # LANL
 
 # My personal configurations for Pitt and Home
 if [ $MYLOC = "PC" ] || [ $MYLOC = "MSYS" ]; then
-  function apt-refresh() {
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get autoremove
-  }
-
   wsip=136.142.112.33
   pcip=136.142.112.27
   ship=136.142.112.254
