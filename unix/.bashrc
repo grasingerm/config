@@ -176,6 +176,7 @@ alias ll="ls -al --color=auto"
 alias lt="ls -altr --color=auto"
 alias lr="ls -alR --color=auto"
 alias cup="cd ../"
+alias julia="julia --color=yes"
 
 alias gull='git pull'
 alias gadd='git add'
