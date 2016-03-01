@@ -349,6 +349,7 @@ if [ $MYLOC = "PC" ] || [ $MYLOC = "MSYS" ]; then
   pcip=136.142.112.27
   ship=136.142.112.254
   myip=136.142.112.32
+  ws2ip=136.142.112.25
 
   alias connpittws="ssh matthewgrasinger@$wsip"
   alias xconnpittws="ssh -X matthewgrasinger@$wsip"
@@ -358,6 +359,8 @@ if [ $MYLOC = "PC" ] || [ $MYLOC = "MSYS" ]; then
   alias xconnpittsh="ssh -X matt@$ship"
   alias connpittmy="ssh matt@$myip"
   alias xconnpittmy="ssh -X matt@$myip"
+  alias connpittws2"ssh matt@$ws2ip"
+  alias xconnpittws2"ssh -X matt@$ws2ip"
 
   function fetchpittws ()
   {
