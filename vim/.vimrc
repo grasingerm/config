@@ -50,6 +50,7 @@ let g:monokai_thick_border = 1
 colorscheme monokai
 
 " General configuration
+set cursorline
 set hidden
 set history=500
 set number

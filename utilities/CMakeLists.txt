@@ -24,5 +24,7 @@ set(EXECUTABLE_OUTPUT_PATH bin)
 
 # dependencies
 add_executable(ewnl end_with_newline.c)
+add_executable(nlimits nlimits.cc)
 
 install(TARGETS ewnl DESTINATION bin)
+install(TARGETS nlimits DESTINATION bin)
