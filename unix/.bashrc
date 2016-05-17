@@ -301,7 +301,11 @@ function cmrel ()
 
 function ffwrap()
 {
-  ffmpeg -framerate $1 -pattern_type glob -i $2 $3
+  if [ $# -eq 3 ]; then
+    ffmpeg -framerate $1 -pattern_type glob -i $2 $3
+  else
+    echo "usage: ffwrap [framerate] [pattern] [outfile]"
+  fi
 }
 
 # Append `.` to PYTHONPATH
