@@ -351,8 +351,8 @@ if [ $MYLOC = "PC" ] || [ $MYLOC = "MSYS" ]; then
 
   alias connpittws="ssh matthewgrasinger@$wsip"
   alias xconnpittws="ssh -X matthewgrasinger@$wsip"
-  alias connpittpc="ssh clementine@$pcip"
-  alias xconnpittpc="ssh -X clementine@$pcip"
+  alias connpittpc="ssh matt@$pcip"
+  alias xconnpittpc="ssh -X matt@$pcip"
   alias connpittsh="ssh matt@$ship"
   alias xconnpittsh="ssh -X matt@$ship"
   alias connpittmy="ssh matt@$myip"
