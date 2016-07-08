@@ -50,6 +50,7 @@ let g:monokai_thick_border = 1
 colorscheme monokai
 
 " General configuration
+set cursorline
 set hidden
 set history=500
 set number
@@ -153,6 +154,11 @@ map <C-down> :res -5 <Return>
 map <C-right> :vertical resize +5 <Return>
 map <C-left> :vertical resize -5 <Return>
 
-" Map for clang-format
-"map <C-K> :pyf <path-to-this-file>/clang-format.py<cr>
-"imap <C-K> <c-o>:pyf <path-to-this-file>/clang-format.py<cr>
+if has("multi_byte")
+  if &termencoding == ""
+    let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  set fileencodings=ucs-bom,utf-8,latin1
+endif

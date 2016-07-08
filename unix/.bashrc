@@ -176,18 +176,9 @@ alias ll="ls -al --color=auto"
 alias lt="ls -altr --color=auto"
 alias lr="ls -alR --color=auto"
 alias cup="cd ../"
+alias julia="julia --color=yes"
 
-alias gull='git pull'
-alias gadd='git add'
-alias gush='git push'
-alias gpom='git push origin master'
-alias glom='git pull origin master'
-alias giff='git diff'
-alias gommit='git commit'
-alias granch='git branch'
 alias glog='git log --graph --pretty=format:"%ai%C(reset)%C(yellow) %h %C(bold white)%s %C(cyan)%an%C(yellow) <%cE> %C(reset)%Cgreen%d"  --color=auto --full-history --date-order --all'
-alias gstat='git status --short'
-alias gstatl='git status --long'
 
 function gitfetchall () {
   if [ $# -eq 0 ]; then
@@ -213,10 +204,6 @@ function lscount() {
 
 function add2path() {
   export PATH=$PATH:$1
-}
-
-function ppath() {
-  echo $PATH
 }
 
 function clearcflags() {
@@ -263,11 +250,6 @@ function setflagsrelease () {
 }
 
 setflagsdebug
-
-alias gxxf="g++ $CXXFLAGS"
-alias clangxxf="clang++ $CXXFLAGS"
-alias gccf="gcc $CFLAGS"
-alias clangf="clang $CFLAGS"
 
 function cmfunc ()
 {
@@ -317,6 +299,15 @@ function cmrel ()
   fi
 }
 
+function ffwrap()
+{
+  if [ $# -eq 3 ]; then
+    ffmpeg -framerate $1 -pattern_type glob -i $2 $3
+  else
+    echo "usage: ffwrap [framerate] [pattern] [outfile]"
+  fi
+}
+
 # Append `.` to PYTHONPATH
 if [ "$PYTHONPATH" = "" ]; then
   export PYTHONPATH=.
@@ -324,30 +315,13 @@ else
   export PYTHONPATH=$PYTHONPATH:.
 fi
 
-function pip-upgrade ()
-{
-  if [ $# -ge 1 ]; then
-    local pip_cmd=$1  
-  else
-    local pip_cmd=pip
-  fi
-    
-  sudo $pip_cmd freeze --local | grep -v '^\-e' | cut -d = -f 1 | \
-       xargs -n1 $pip_cmd install -U
-}
-
-# LANL specific vars and functions
-if [ $MYLOC = "LANL" ] && [ $TERM = "xterm" ]; then
-  add2path /home/grasingerm/Dev/mads/bin/Release
-  source ~/bash/.lanl_bashrc 
-fi # LANL
-
 # My personal configurations for Pitt and Home
 if [ $MYLOC = "PC" ] || [ $MYLOC = "MSYS" ]; then
   wsip=136.142.112.33
   pcip=136.142.112.27
   ship=136.142.112.254
   myip=136.142.112.32
+  ws2ip=136.142.112.25
 
   alias connpittws="ssh matthewgrasinger@$wsip"
   alias xconnpittws="ssh -X matthewgrasinger@$wsip"
@@ -357,6 +331,8 @@ if [ $MYLOC = "PC" ] || [ $MYLOC = "MSYS" ]; then
   alias xconnpittsh="ssh -X matt@$ship"
   alias connpittmy="ssh matt@$myip"
   alias xconnpittmy="ssh -X matt@$myip"
+  alias connpittws2="ssh matt@$ws2ip"
+  alias xconnpittws2="ssh -X matt@$ws2ip"
 
   function fetchpittws ()
   {
