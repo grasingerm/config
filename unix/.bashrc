@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export GOPATH=~/go
+export PATH=$PATH:~/go/bin
+
 if [[ $- != *i* ]] ; then
 	# Shell is non-interactive.  Be done now!
 	return
