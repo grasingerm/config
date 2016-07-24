@@ -133,6 +133,9 @@ set scrolloff=10
 set sidescrolloff=15
 set sidescroll=1
 
+" word wrap
+autocmd BufNewFile,BufRead *.tex setlocal wrap linebreak nolist textwidth=0 wrapmargin=0
+
 " C / C++ settings
 set cindent
 set cinoptions=g-1

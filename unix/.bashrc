@@ -23,9 +23,7 @@ shopt -s expand_aliases
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
 alias more=less
-# export QT_SELECT=4
 
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
@@ -173,31 +171,7 @@ fi
 export EDITOR=vim
 
 alias tmux="TERM=screen-256color-bce tmux"
-alias ls='ls --color=auto'
-alias la="ls -a --color=auto"
-alias ll="ls -al --color=auto"
-alias lt="ls -altr --color=auto"
-alias lr="ls -alR --color=auto"
-alias cup="cd ../"
 alias julia="julia --color=yes"
-
-alias glog='git log --graph --pretty=format:"%ai%C(reset)%C(yellow) %h %C(bold white)%s %C(cyan)%an%C(yellow) <%cE> %C(reset)%Cgreen%d"  --color=auto --full-history --date-order --all'
-
-function gitfetchall () {
-  if [ $# -eq 0 ]; then
-    dir=.
-  else
-    dir=$1
-  fi
-
-  for i in $dir/*; do
-    if [ -d $i ]; then
-      pushd $i
-      git pull origin master
-      popd
-    fi
-  done
-}
 
 # count files and directories in the current path
 function lscount() {
@@ -308,6 +282,18 @@ function ffwrap()
     ffmpeg -framerate $1 -pattern_type glob -i $2 $3
   else
     echo "usage: ffwrap [framerate] [pattern] [outfile]"
+  fi
+}
+
+function compile-latex()
+{
+  if [ $# -eq 1 ]; then
+    pdflatex $1.tex
+    bibtex $1.aux
+    pdflatex $1.tex
+    pdflatex $1.tex
+  else
+    echo "usage: compile-latex [latex-file.tex]"
   fi
 }
 
