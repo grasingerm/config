@@ -288,10 +288,10 @@ function ffwrap()
 function compile-latex()
 {
   if [ $# -eq 1 ]; then
-    pdflatex $1.tex
-    bibtex $1.aux
-    pdflatex $1.tex
-    pdflatex $1.tex
+    pdflatex -interaction=nonstopmode $1.tex
+    bibtex -interaction=nonstopmode $1.aux
+    pdflatex -interaction=nonstopmode $1.tex
+    pdflatex -interaction=nonstopmode $1.tex
   else
     echo "usage: compile-latex [latex-file.tex]"
   fi
