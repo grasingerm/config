@@ -1,8 +1,5 @@
 #!/bin/bash
 
-export GOPATH=~/go
-export PATH=$PATH:~/go/bin
-
 if [[ $- != *i* ]] ; then
 	# Shell is non-interactive.  Be done now!
 	return
@@ -161,17 +158,17 @@ colors() {
 
 [ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
 
-if [ -f ~/.loc ]; then
-  source ~/.loc
-else
-  echo ".loc not found!"
-  export MYLOC=UNKNOWN
-fi
+# My configurations...
 
 export EDITOR=vim
 
 alias tmux="TERM=screen-256color-bce tmux"
 alias julia="julia --color=yes"
+
+export QUIP_ARCH=linux_x86_64_gfortran_openmpi
+
+export GOPATH=~/go
+export PATH=$PATH:~/go/bin
 
 # count files and directories in the current path
 function lscount() {
@@ -276,15 +273,6 @@ function cmrel ()
   fi
 }
 
-function ffwrap()
-{
-  if [ $# -eq 3 ]; then
-    ffmpeg -framerate $1 -pattern_type glob -i $2 $3
-  else
-    echo "usage: ffwrap [framerate] [pattern] [outfile]"
-  fi
-}
-
 function compile-latex()
 {
   if [ $# -eq 1 ]; then
@@ -304,52 +292,20 @@ else
   export PYTHONPATH=$PYTHONPATH:.
 fi
 
-# My personal configurations for Pitt and Home
-if [ $MYLOC = "PC" ] || [ $MYLOC = "MSYS" ]; then
-  wsip=136.142.112.33
-  pcip=136.142.112.27
-  ship=136.142.112.254
-  myip=136.142.112.32
-  ws2ip=136.142.112.25
+# University of Pittsburgh Workstations
+wsip=136.142.112.33
+pcip=136.142.112.27
+ship=136.142.112.254
+myip=136.142.112.32
+ws2ip=136.142.112.25
 
-  alias connpittws="ssh matthewgrasinger@$wsip"
-  alias xconnpittws="ssh -X matthewgrasinger@$wsip"
-  alias connpittpc="ssh matt@$pcip"
-  alias xconnpittpc="ssh -X matt@$pcip"
-  alias connpittsh="ssh matt@$ship"
-  alias xconnpittsh="ssh -X matt@$ship"
-  alias connpittmy="ssh matt@$myip"
-  alias xconnpittmy="ssh -X matt@$myip"
-  alias connpittws2="ssh matt@$ws2ip"
-  alias xconnpittws2="ssh -X matt@$ws2ip"
-
-  function fetchpittws ()
-  {
-    if [ $# -eq 2 ]; then
-      scp matthewgrasinger@$wsip:$1 $2
-    else
-      echo "usage: fetchpittws remote_path local_path"
-    fi
-  }
-
-  function fetchpittpc ()
-  {
-    if [ $# -eq 2 ]; then
-      scp clementine@$pcip:$1 $2
-    else
-      echo "usage: fetchpittws remote_path local_path"
-    fi
-  }
-
-  export SPRNG_INC="/usr/local/sprng2.0/include"
-  export SPRNG_LIB="/usr/local/sprng2.0/lib"
-
-  if [ $MYLOC = "MSYS" ]; then
-    add2path "/c/Program Files (x86)/Vim/vim74"
-    alias vim=gvim.exe
-    export WINHOME="/c/Users/Matthew"
-    function go2win() {
-      cd $WINHOME/$1
-    }
-  fi
-fi # PC
+alias connpittws="ssh matthewgrasinger@$wsip"
+alias xconnpittws="ssh -X matthewgrasinger@$wsip"
+alias connpittpc="ssh matt@$pcip"
+alias xconnpittpc="ssh -X matt@$pcip"
+alias connpittsh="ssh matt@$ship"
+alias xconnpittsh="ssh -X matt@$ship"
+alias connpittmy="ssh matt@$myip"
+alias xconnpittmy="ssh -X matt@$myip"
+alias connpittws2="ssh matt@$ws2ip"
+alias xconnpittws2="ssh -X matt@$ws2ip"
