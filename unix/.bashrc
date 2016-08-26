@@ -166,6 +166,8 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias julia="julia --color=yes"
 
 export QUIP_ARCH=linux_x86_64_gfortran_openmpi
+export QUIP_INSTALLDIR=/usr/local/QUIP
+export QUIP_ROOT=~/QUIP
 
 export GOPATH=~/go
 export PATH=$PATH:~/go/bin
