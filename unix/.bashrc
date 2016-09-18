@@ -171,6 +171,7 @@ export QUIP_ROOT=~/QUIP
 
 export GOPATH=~/go
 export PATH=$PATH:~/go/bin
+export PATH=$PATH:/usr/local/go/bin
 
 # count files and directories in the current path
 function lscount() {
@@ -224,8 +225,6 @@ function setflagsrelease () {
   add2cflags "$releaseflags -std=c99"
   add2cxxflags "$releaseflags -std=c++14"
 }
-
-setflagsdebug
 
 function cmfunc ()
 {
@@ -311,3 +310,5 @@ alias connpittmy="ssh matt@$myip"
 alias xconnpittmy="ssh -X matt@$myip"
 alias connpittws2="ssh matt@$ws2ip"
 alias xconnpittws2="ssh -X matt@$ws2ip"
+
+alias conngreenfield="ssh grasinge@greenfield.psc.xsede.org"
