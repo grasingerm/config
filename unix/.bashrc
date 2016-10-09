@@ -172,6 +172,7 @@ export QUIP_ROOT=~/QUIP
 export GOPATH=~/go
 export PATH=$PATH:~/go/bin
 export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/visit/bin
 
 # count files and directories in the current path
 function lscount() {
@@ -317,3 +318,4 @@ alias connpittws2="ssh matt@$ws2ip"
 alias xconnpittws2="ssh -X matt@$ws2ip"
 
 alias conngreenfield="ssh grasinge@greenfield.psc.xsede.org"
+alias connbridges="ssh grasinge@bridges.psc.xsede.org"
