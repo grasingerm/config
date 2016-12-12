@@ -233,6 +233,26 @@ function setflagsrelease () {
   export CPPFLAGS=$CXXFLAGS
 }
 
+function set-cc()
+{
+  if [ $# -eq 1 ]; then
+    export CC=$1
+    export OMPI_CC=$CC
+  else
+    echo "usage: set-cc [c compiler]"
+  fi
+}
+
+function set-cxx()
+{
+  if [ $# -eq 1 ]; then
+    export CXX=$1
+    export OMPI_CXX=$CXX
+  else
+    echo "usage: set-cxx [cxx compiler]"
+  fi
+}
+
 function cmfunc ()
 {
   if [ $# -eq 3 ]; then
@@ -320,3 +340,14 @@ alias xconnpittws2="ssh -X matt@$ws2ip"
 
 alias conngreenfield="ssh grasinge@greenfield.psc.xsede.org"
 alias connbridges="ssh grasinge@bridges.psc.xsede.org"
+
+export PATH="$PATH:/usr/local/visit2_12_0.linux-x86_64/bin"
+export PATH="$PATH:/opt/pgi/linux86-64/2016/bin"
+
+export qcroot="$HOME/Dev/qc"
+export qco="$HOME/Dev/qc/Output"
+export qci="$HOME/Dev/qc/Input"
+
+alias grive-mount="google-drive-ocamlfuse $HOME/google-drive"
+alias grive-umount="fusermount -u $HOME/google-drive"
+
