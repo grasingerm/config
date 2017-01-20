@@ -163,7 +163,7 @@ colors() {
 
 export EDITOR=vim
 
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="TERM=screen-256color tmux"
 alias julia="julia --color=yes"
 
 export QUIP_ARCH=linux_x86_64_gfortran_openmpi
