@@ -157,10 +157,6 @@ colors() {
 	done
 }
 
-[ -r /usr/share/bash-completion/bash_completion   ] && . /usr/share/bash-completion/bash_completion
-
-# My configurations...
-
 export EDITOR=vim
 
 alias tmux="TERM=screen-256color tmux"
@@ -341,6 +337,9 @@ alias xconnpittws2="ssh -X matt@$ws2ip"
 alias conngreenfield="ssh grasinge@greenfield.psc.xsede.org"
 alias connbridges="ssh grasinge@bridges.psc.xsede.org"
 
+alias connbaker="ssh clementine@baker-a12.andrew.cmu.edu"
+alias connbakerip="ssh clementine@128.2.69.241"
+
 export PATH="$PATH:/usr/local/visit2_12_0.linux-x86_64/bin"
 export PATH="$PATH:/opt/pgi/linux86-64/2016/bin"
 
@@ -350,4 +349,3 @@ export qci="$HOME/Dev/qc/Input"
 
 alias grive-mount="google-drive-ocamlfuse $HOME/google-drive"
 alias grive-umount="fusermount -u $HOME/google-drive"
-
