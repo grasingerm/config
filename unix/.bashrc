@@ -146,6 +146,8 @@ fi
 # ========== my aliases and env variables ============
 alias tmux="TERM=screen-256color tmux"
 alias julia="julia --color=yes"
+alias julia-fast="julia --color=yes --math-mode=fast --optimize=3 --check-bounds=no --depwarn=no"
+alias julia-quiet="julia --color=yes --depwarn=no"
 
 export EDITOR=vim
 export GOPATH=~/go
