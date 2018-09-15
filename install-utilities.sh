@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo cp -v utilities/countlines /usr/local/bin
+sudo cp -v utilities/clean_unused_figs /usr/local/bin
 
 mkdir build
 cd build

@@ -21,6 +21,7 @@ Plugin 'jpalardy/vim-slime'
 Plugin 'zyedidia/literate.vim'
 Plugin 'chrisbra/unicode.vim'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'scrooloose/nerdcommenter'
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
