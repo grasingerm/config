@@ -1,18 +1,18 @@
 #!/usr/bin/env python
-
+from __future__ import print_function
 import sys
 
 if len(sys.argv) < 2:
-    print 'usage: countlines filename (filename2) (...)'
+    print('usage: countlines filename (filename2) (...)')
 
 else:
 
-    print ''
+    print('')
     for i in range(1, len(sys.argv)):
         try:
             f = open(sys.argv[i])
-            print '%(fname)25s:     %(n)d' % {'fname' : sys.argv[i], \
-                                              'n' : len(f.readlines())}
+            print('%(fname)25s:     %(n)d' % {'fname' : sys.argv[i], \
+                                              'n' : len(f.readlines())})
             f.close()
         except:
-            print 'Could not open', sys.argv[i]
+            print('Could not open', sys.argv[i])
