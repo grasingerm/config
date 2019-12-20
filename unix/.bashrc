@@ -303,5 +303,10 @@ fi
 export HPC_FLAG=true
 if $HPC_FLAG; then
   . /etc/profile.d/modules.sh
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/libevent/lib
   alias julia=$HOME/julia-1.3.0/bin/julia
+  alias tmux=$HOME/tmux/bin/tmux
+
+  module load python3
+  module load cmake
 fi
