@@ -300,36 +300,8 @@ else
   export PYTHONPATH=$PYTHONPATH:.
 fi
 
-# University of Pittsburgh Workstations
-wsip=136.142.112.33
-pcip=136.142.112.27
-ship=136.142.112.254
-myip=136.142.112.32
-ws2ip=136.142.112.25
-
-alias connpittws="ssh matthewgrasinger@$wsip"
-alias xconnpittws="ssh -X matthewgrasinger@$wsip"
-alias connpittpc="ssh matt@$pcip"
-alias xconnpittpc="ssh -X matt@$pcip"
-alias connpittsh="ssh matt@$ship"
-alias xconnpittsh="ssh -X matt@$ship"
-alias connpittmy="ssh matt@$myip"
-alias xconnpittmy="ssh -X matt@$myip"
-alias connpittws2="ssh matt@$ws2ip"
-alias xconnpittws2="ssh -X matt@$ws2ip"
-
-alias conngreenfield="ssh grasinge@greenfield.psc.xsede.org"
-alias connbridges="ssh grasinge@bridges.psc.xsede.org"
-
-alias connbaker="ssh clementine@baker-a12.andrew.cmu.edu"
-alias connbakerip="ssh clementine@128.2.69.241"
-
-export PATH="$PATH:/usr/local/visit2_12_0.linux-x86_64/bin"
-export PATH="$PATH:/opt/pgi/linux86-64/2016/bin"
-
-export qcroot="$HOME/Dev/qc"
-export qco="$HOME/Dev/qc/Output"
-export qci="$HOME/Dev/qc/Input"
-
-alias grive-mount="google-drive-ocamlfuse $HOME/google-drive"
-alias grive-umount="fusermount -u $HOME/google-drive"
+export HPC_FLAG=true
+if $HPC_FLAG; then
+  . /etc/profile.d/modules.sh
+  alias julia=$HOME/julia-1.3.0/bin/julia
+fi
