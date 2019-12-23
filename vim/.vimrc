@@ -22,6 +22,8 @@ Plugin 'zyedidia/literate.vim'
 Plugin 'chrisbra/unicode.vim'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'gnuplot.vim'
+Plugin 'majutsushi/tagbar'
 
 " All of your Plugins must be added before the following line
 call vundle#end() " required
@@ -140,6 +142,11 @@ set sidescroll=1
 
 " word wrap
 autocmd BufNewFile,BufRead *.tex setlocal wrap linebreak nolist textwidth=0 wrapmargin=0
+
+" recognize gnuplot files
+autocmd BufRead,BufNewFile *.plt set filetype=gnuplot
+autocmd BufRead,BufNewFile *.gplt set filetype=gnuplot
+autocmd BufRead,BufNewFile *.gnuplt set filetype=gnuplot
 
 " C / C++ settings
 set cindent

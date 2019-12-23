@@ -123,7 +123,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -150,9 +149,6 @@ alias julia-fast="julia --color=yes --math-mode=fast --optimize=3 --check-bounds
 alias julia-quiet="julia --color=yes --depwarn=no"
 
 export EDITOR=vim
-export GOPATH=~/go
-export PATH=$PATH:~/go/bin
-export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/usr/local/visit/bin
 
 # count files and directories in the current path
@@ -300,36 +296,11 @@ else
   export PYTHONPATH=$PYTHONPATH:.
 fi
 
-# University of Pittsburgh Workstations
-wsip=136.142.112.33
-pcip=136.142.112.27
-ship=136.142.112.254
-myip=136.142.112.32
-ws2ip=136.142.112.25
-
-alias connpittws="ssh matthewgrasinger@$wsip"
-alias xconnpittws="ssh -X matthewgrasinger@$wsip"
-alias connpittpc="ssh matt@$pcip"
-alias xconnpittpc="ssh -X matt@$pcip"
-alias connpittsh="ssh matt@$ship"
-alias xconnpittsh="ssh -X matt@$ship"
-alias connpittmy="ssh matt@$myip"
-alias xconnpittmy="ssh -X matt@$myip"
-alias connpittws2="ssh matt@$ws2ip"
-alias xconnpittws2="ssh -X matt@$ws2ip"
-
-alias conngreenfield="ssh grasinge@greenfield.psc.xsede.org"
-alias connbridges="ssh grasinge@bridges.psc.xsede.org"
-
-alias connbaker="ssh clementine@baker-a12.andrew.cmu.edu"
-alias connbakerip="ssh clementine@128.2.69.241"
-
-export PATH="$PATH:/usr/local/visit2_12_0.linux-x86_64/bin"
-export PATH="$PATH:/opt/pgi/linux86-64/2016/bin"
-
-export qcroot="$HOME/Dev/qc"
-export qco="$HOME/Dev/qc/Output"
-export qci="$HOME/Dev/qc/Input"
-
 alias grive-mount="google-drive-ocamlfuse $HOME/google-drive"
 alias grive-umount="fusermount -u $HOME/google-drive"
+
+export MATLAB_JAVA=/usr/local/MATLAB/R2019a/sys/java/jre/glnxa64/jre
+
+alias dbg-julia="JULIA_DEBUG=all julia --color=yes"
+
+alias conn_home="ssh clementine@174.97.126.70"
