@@ -6,6 +6,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+Plugin 'lervag/vimtex'
 Plugin 'JuliaLang/julia-vim'
 Plugin 'elzr/vim-json'
 Plugin 'octol/vim-cpp-enhanced-highlight'
@@ -177,3 +178,16 @@ if has("multi_byte")
   setglobal fileencoding=utf-8
   set fileencodings=ucs-bom,utf-8,latin1
 endif
+
+let g:vimtex_toc_config = {
+  \ 'name' : 'TOC',
+  \ 'layers' : ['content', 'todo', 'include'],
+  \ 'resize' : 1,
+  \ 'split_width' : 50,
+  \ 'todo_sorted' : 0,
+  \ 'show_help' : 1,
+  \ 'show_numbers' : 1,
+  \ 'mode' : 2
+  \}
+
+let g:vimtex_view_general_viewer = 'okular'

@@ -149,7 +149,7 @@ alias julia-fast="julia --color=yes --math-mode=fast --optimize=3 --check-bounds
 alias julia-quiet="julia --color=yes --depwarn=no"
 
 export EDITOR=vim
-export PATH=$PATH:/usr/local/visit/bin
+export PATH=$PATH:/usr/local/visit/bin:/snap/bin
 
 # count files and directories in the current path
 function lscount() {
@@ -304,3 +304,20 @@ export MATLAB_JAVA=/usr/local/MATLAB/R2019a/sys/java/jre/glnxa64/jre
 alias dbg-julia="JULIA_DEBUG=all julia --color=yes"
 
 alias conn_home="ssh clementine@174.97.126.70"
+
+export HPC_FLAG=false
+if $HPC_FLAG; then
+  . /etc/profile.d/modules.sh
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/libevent/lib
+  alias julia=$HOME/julia-1.3.0/bin/julia
+  alias tmux=$HOME/tmux/bin/tmux
+
+  module load python3
+  module load cmake
+fi
+
+alias myPush="rclone copy ~/google-drive pdrive:"
+alias myPull="rclone copy pdrive: ~/google-drive"
+alias myPushPull="myPush && myPull"
+alias mySyncPush="rclone sync ~/google-drive pdrive:"
+alias mySyncPull="rclone sync pdrive: ~/google-drive"
