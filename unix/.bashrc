@@ -305,3 +305,7 @@ alias myPull="rclone copy pdrive: ~/google-drive"
 alias myPushPull="myPush && myPull"
 alias mySyncPush="rclone sync ~/google-drive pdrive:"
 alias mySyncPull="rclone sync pdrive: ~/google-drive"
+
+#if type globus > /dev/null 2>&1; then
+#  eval "$(globus --bash-completer)"
+#fi

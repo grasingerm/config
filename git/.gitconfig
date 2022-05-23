@@ -11,3 +11,5 @@
   pager = less -S
 [github]
 	user = grasingerm
+[pull]
+	rebase = false
